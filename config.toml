@@ -7,7 +7,7 @@ os = "windows"
 # The time at which the server should automatically restart each day. Format: "HH:MM" (24-hour format)
 restart_hour = "06:00"
 
-# The interval (in hours) at which the RAM cache should be cleared.
+# The interval (in hours) at which the RAM cache should be cleared. It must be an Integer
 cache_clear_interval = 6
 
 # List of service executables that should be restarted after a reboot. Provide full paths to the executables.

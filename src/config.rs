@@ -36,6 +36,14 @@ impl Config {
     }
 
     /**
+    * @brief Convert the clearing duration frequency in seconds
+    * @returns u64 the clearing duration frequency
+    */
+    pub fn get_clearing_frequency(&self) -> u64 {
+        self.cache_clear_interval as u64 * 3600
+    }
+
+    /**
     * @brief Print the information from the configuration file
     */
     pub fn show_config(&self) {
