@@ -1,7 +1,8 @@
 mod config;
+mod clear_ram;
 
 /**
- * @brief Test the configuration management system, basically prints the config file.
+ * @brief Test the clearing of the ram
  */
 
 // Relative path to the config file
@@ -13,6 +14,6 @@ fn main() {
     let config = config::Config::load(CONFIG_PATH)
         .expect("Impossible de charger la configuration");
 
-    // Print the configuration details
-    config.show_config();
+    // Clear the Ram
+    clear_ram::clear_ram(&config);
 }
