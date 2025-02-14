@@ -5,7 +5,7 @@
 os = "windows"
 
 # The time at which the server should automatically restart each day. Format: "HH:MM" (24-hour format)
-restart_hour = "06:00"
+restart_hour = "13:50"
 
 # The interval (in hours) at which the RAM cache should be cleared. It must be an Integer
 cache_clear_interval = 6

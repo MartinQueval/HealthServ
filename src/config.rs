@@ -44,7 +44,7 @@ impl Config {
     }
 
     /**
-    * @brief Print the information from the configuration file
+    * @brief Print the information from the configuration file (Debug)
     */
     pub fn show_config(&self) {
         println!("OS: {}", self.os);

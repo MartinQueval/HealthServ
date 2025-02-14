@@ -38,7 +38,6 @@ fn clear_ram_windows() {
             }
         }
     }
-    println!("RAM cache cleared on Windows.");
 }
 
 /**
@@ -50,6 +49,4 @@ fn clear_ram_linux() {
 
     // Run the command to drop the caches (echo 3 to /proc/sys/vm/drop_caches)
     let _ = Command::new("sh").arg("-c").arg("echo 3 > /proc/sys/vm/drop_caches").status();
-
-    println!("RAM cache cleared on Linux.");
 }
