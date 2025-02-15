@@ -7,7 +7,7 @@ use std::thread;
 use std::time::Duration;
 
 /**
- * @brief Test to run the services
+ * @brief Test each features
  */
 
 // Relative path to the config file
@@ -23,7 +23,7 @@ fn main() {
     launch_services::launch_services(&config);
 
     // Launch the restart function
-    //restart::restart(&config);
+    restart::restart(&config);
 
     // Get the clearing RAM frequency
     let interval_seconds = config.get_clearing_frequency();

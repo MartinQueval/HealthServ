@@ -22,8 +22,6 @@ fn launch_windows_services(services : &Vec<String>){
         //command cmd to run a program
         let _ = Command::new("cmd").args(&["/C", service]).spawn()
             .expect(&format!("Failed to start service: {}", service));
-        //Debug
-        println!("Starting Windows service: {}", service);
     }
 }
 
@@ -35,8 +33,5 @@ fn launch_linux_services(services : &Vec<String>){
     for service in services {
         //command system to run a program
         let _ = Command::new("systemctl").args(&["start", service]).spawn();
-
-        //Debug
-        println!("Starting Linux service: {}", service);
     }
 }
