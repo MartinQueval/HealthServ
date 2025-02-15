@@ -15,9 +15,6 @@ pub fn restart(config: &Config) {
     // Calculate the number of seconds until restart
     let restart_duration = (restart_time - Local::now().time()).num_seconds().unsigned_abs();
 
-    //Debug
-    println!("Restart scheduled in {} seconds.", restart_duration);
-
     // Get the OS and call the corresponding restart function
     match config.os.to_lowercase().as_str() {
         "windows" => restart_windows(restart_duration),
@@ -31,9 +28,6 @@ pub fn restart(config: &Config) {
 * @param u64 time to restart
 */
 fn restart_windows(restart_duration: u64){
-    //Debug
-    println!("Restarting Windows...");
-
     //Windows restart command
     let _ = Command::new("shutdown").args(&["/r", "/t", &restart_duration.to_string()]).spawn();
 }
@@ -42,9 +36,6 @@ fn restart_windows(restart_duration: u64){
 * @brief Function to restart the computer on Linux os
 */
 fn restart_linux(restart_duration: u64){
-    //Debug
-    println!("Restarting Linux...");
-
     //Linux restart Command
     let _ = Command::new("shutdown").args(&["-r", format!("+{}", restart_duration / 60).as_str()]).spawn();
 }

@@ -1,12 +1,13 @@
 mod config;
 mod clear_ram;
 mod restart;
+mod launch_services;
 
 use std::thread;
 use std::time::Duration;
 
 /**
- * @brief Test the restart
+ * @brief Test to run the services
  */
 
 // Relative path to the config file
@@ -18,8 +19,11 @@ fn main() {
     let config = config::Config::load(CONFIG_PATH)
         .expect("Failed to load the configuration");
 
+    //Launch services
+    launch_services::launch_services(&config);
+
     // Launch the restart function
-    restart::restart(&config);
+    //restart::restart(&config);
 
     // Get the clearing RAM frequency
     let interval_seconds = config.get_clearing_frequency();

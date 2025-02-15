@@ -12,6 +12,6 @@ cache_clear_interval = 6
 
 # List of service executables that should be restarted after a reboot. Provide full paths to the executables.
 services = [
-    "C:\\Program Files\\Service1.exe",
-    "C:\\Program Files\\Service2.exe"
+    "C:\\Program Files\\Audacity\\Audacity.exe",
+    "C:\\Users\\marti\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Steam\\Wallpaper Engine.url"
 ]
