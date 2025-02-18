@@ -6,11 +6,11 @@ use std::process::Command;
 * @param config The configuration struct
 */
 pub fn launch_services(config: &Config) {
-    match config.os.to_lowercase().as_str() {
-        "windows" => launch_windows_services(&config.services),
-        "linux" => launch_linux_services(&config.services),
-        _ => println!("Unknown OS in config file: {}", config.os),
-    }
+	match config.os.to_lowercase().as_str() {
+		"windows" => launch_windows_services(&config.services),
+		"linux" => launch_linux_services(&config.services),
+		_ => println!("Unknown OS in config file: {}", config.os),
+	}
 }
 
 /**
@@ -18,11 +18,11 @@ pub fn launch_services(config: &Config) {
 * @param Vec<String> the list of services that should be restarted
 */
 fn launch_windows_services(services : &Vec<String>){
-    for service in services {
-        //command cmd to run a program
-        let _ = Command::new("cmd").args(&["/C", service]).spawn()
-            .expect(&format!("Failed to start service: {}", service));
-    }
+	for service in services {
+		//command cmd to run a program
+		let _ = Command::new("cmd").args(&["/C", service]).spawn()
+			.expect(&format!("Failed to start service: {}", service));
+	}
 }
 
 /**
@@ -30,8 +30,8 @@ fn launch_windows_services(services : &Vec<String>){
 * @param Vec<String> the list of services that should be restarted
 */
 fn launch_linux_services(services : &Vec<String>){
-    for service in services {
-        //command system to run a program
-        let _ = Command::new("systemctl").args(&["start", service]).spawn();
-    }
+	for service in services {
+		//command system to run a program
+		let _ = Command::new("bash").arg("-c").arg(service).output();
+	}
 }

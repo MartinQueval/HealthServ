@@ -48,5 +48,5 @@ fn clear_ram_linux() {
     let _ = Command::new("sync").status();
 
     // Run the command to drop the caches (echo 3 to /proc/sys/vm/drop_caches)
-    let _ = Command::new("sh").arg("-c").arg("echo 3 > /proc/sys/vm/drop_caches").status();
+    let _ = Command::new("sudo").arg("sh").arg("-c").arg("echo 3 > /proc/sys/vm/drop_caches").status();
 }
