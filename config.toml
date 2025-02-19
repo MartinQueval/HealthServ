@@ -1,7 +1,7 @@
 # Server health configuration file
 # It contains the operating system, the reboot time, the RAM clearing frequency, and the list of services.
 
-# The operating system used by the server. Possible values: "windows" or "linux".
+# The operating system used by the server. Possible values: "windows" or "linux" or "mac".
 os = "windows"
 
 # The time at which the server should automatically restart each day. Format: "HH:MM" (24-hour format)

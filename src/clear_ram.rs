@@ -2,6 +2,7 @@ use std::process::Command;
 use crate::config::Config;
 use sysinfo::{System};
 
+//imports specific to Windows
 #[cfg(target_os = "windows")]
 use windows::Win32::System::Threading::{OpenProcess, PROCESS_QUERY_INFORMATION, PROCESS_VM_READ, PROCESS_SET_QUOTA};
 #[cfg(target_os = "windows")]
@@ -21,6 +22,7 @@ pub fn clear_ram(config: &Config) {
 			clear_ram_windows();
 		},
 		"linux" => clear_ram_linux(),
+        "mac" => clear_ram_mac(),
 		_ => println!("Unknown OS in config file: {}", config.os),
 	}
 }
@@ -58,4 +60,12 @@ fn clear_ram_linux() {
 
 	// Run the command to drop the caches (echo 3 to /proc/sys/vm/drop_caches)
 	let _ = Command::new("sudo").arg("sh").arg("-c").arg("echo 3 > /proc/sys/vm/drop_caches").status();
+}
+
+/**
+* @brief Function to clear RAM on macOS
+*/
+fn clear_ram_mac() {
+    // Run the command to drop the caches
+    let _ = Command::new("sudo").arg("purge").status();
 }

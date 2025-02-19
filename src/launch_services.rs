@@ -9,6 +9,7 @@ pub fn launch_services(config: &Config) {
 	match config.os.to_lowercase().as_str() {
 		"windows" => launch_windows_services(&config.services),
 		"linux" => launch_linux_services(&config.services),
+		"mac" => launch_mac_services(&config.services),
 		_ => println!("Unknown OS in config file: {}", config.os),
 	}
 }
@@ -32,6 +33,17 @@ fn launch_windows_services(services : &Vec<String>){
 fn launch_linux_services(services : &Vec<String>){
 	for service in services {
 		//command system to run a program
-		let _ = Command::new("bash").arg("-c").arg(service).output();
+		let _ = Command::new(service).spawn();
+	}
+}
+
+/**
+* @brief Function to run a program on macOS
+* @param Vec<String> the list of services that should be restarted
+*/
+fn launch_mac_services(services: &Vec<String>) {
+	for service in services {
+		//command system to run a program
+		let _ = Command::new("open").arg(service).spawn();
 	}
 }

@@ -19,6 +19,7 @@ pub fn restart(config: &Config) {
     match config.os.to_lowercase().as_str() {
         "windows" => restart_windows(restart_duration),
         "linux" => restart_linux(restart_duration),
+        "mac" => restart_mac(restart_duration),
         _ => println!("Unknown OS in config file: {}", config.os),
     }
 }
@@ -34,8 +35,18 @@ fn restart_windows(restart_duration: u64){
 
 /**
 * @brief Function to restart the computer on Linux os
+* @param u64 time to restart
 */
 fn restart_linux(restart_duration: u64){
     //Linux restart Command
     let _ = Command::new("shutdown").args(&["-r", format!("+{}", restart_duration / 60).as_str()]).spawn();
+}
+
+/**
+* @brief Function to restart the computer on macOS
+* @param u64 time to restart
+*/
+fn restart_mac(restart_duration: u64){
+    //Mac restart Command
+    let _ = Command::new("sudo").args(&["shutdown","-r", format!("+{}", restart_duration / 60).as_str()]).spawn();
 }
