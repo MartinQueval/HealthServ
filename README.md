@@ -35,11 +35,11 @@ For HealthServ to launch automatically, you need to add it to the Windows startu
 shell:startup
 ```
 - Then right-click and select "new" and "shortcut".
-- Finally, click on browse, go to the `HealthServ` folder, then click on "HealthServ" and "ok", "next", "finish".
+- Finally, click on browse, go to the `HealthServ` folder, then click on "HealthServ" and "ok", "next", "finish".<br>
 Now you can close the file explorer.
 
 ### Config file edit
-- Open the folder `HealthServ`, then you should find a config.toml file.
+- Open the folder `HealthServ`, then you should find a `config.toml` file.
 - Open it with a text editor.
 
 #### 1. Change OS
@@ -74,7 +74,7 @@ It should look something like this :
 ```sh
 cache_clear_interval = 6
 ```
-By default, the memory is cleared every 6 hours,<br>
+By default, the memory is cleared every 6 hours,
 but you can change this value by replacing the 6 with the interval you want.<br>
 Be careful to use an integer as shown above.
 
@@ -96,7 +96,7 @@ services = [
 ]
 ```
 By default, HealthServ launches vs code and chrome.<br>
-But you may not have these two programs,or you may not want to launch them at startup.<br>
+But you may not have these two programs, or you may not want to launch them at startup.<br>
 If so, delete the 2 link lines and the services section should look like this :
 ```sh
 services = [
@@ -105,12 +105,12 @@ services = [
 
 Now, maybe you want to launch a program at startup.
 - Go to its executable, right-click and click on "copy as path".
-- Then go to the config.toml file in the HealthServ folder and paste it into the sevices section.
-- Finally, add a second "\" to each slash in the path and add a "," to the end of the line.
+- Then go to the `config.toml` file in the HealthServ folder and paste it into the sevices section.
+- Finally, add a second "\\" to each slash in the path and add a "," to the end of the line.
 
 Example for discord :
 - "C:\Users\marti\AppData\Local\Discord\app-1.0.9182\Discord.exe", ❌
-- "C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9182\\Discord.exe" ❌
+- "C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe" ❌
 - C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9182\\Discord.exe, ❌
 - "C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9182\\Discord.exe", ✅
 
