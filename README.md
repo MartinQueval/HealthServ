@@ -111,8 +111,8 @@ Now, maybe you want to launch a program at startup.
 Example for discord :
 - "C:\Users\marti\AppData\Local\Discord\app-1.0.9182\Discord.exe", ❌
 - "C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe" ❌
-- C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9182\\Discord.exe, ❌
-- "C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9182\\Discord.exe", ✅
+- C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe, ❌
+- "C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe", ✅
 
 Now the services section should look like this :
 ```sh
