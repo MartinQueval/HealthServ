@@ -28,7 +28,7 @@ Then extract the folder and place it wherever you like.
 
 ## Windows
 ### Automatic program start
-For HealthServ to launch automatically, you need to add it to the Windows startup list.
+For ̀ HealthServ` to launch automatically, you need to add it to the `Windows startup list`.
 - First press **Win + R**
 - Then copy and paste this :
 ```sh
@@ -132,17 +132,39 @@ Thank you for using `HealthServ`, you're contributing to the project in your own
 
 ## Linux
 ### Automatic program start
-For HealthServ to launch automatically, you need to add it to the Windows startup list.
-- First press **Win + R**
+For `HealthServ` to launch automatically, you need to add it to the `Linux Crontab`.
+- press **Ctrl + Alt + T** to open a terminal
 - Then copy and paste this :
 ```sh
-shell:startup
+crontab -e
 ```
-- Then right-click and select "new" and "shortcut".
-- Finally, click on browse, go to the `HealthServ` folder, then click on "HealthServ" and "ok", "next", "finish".<br>
-Now you can close the file explorer.
+- Press **Enter**, and **1** to open with Nano
+- Use your keyboard's **Down Arrow** to scroll down at the end
+- Copy the following line :
+```sh
+@reboot /path/to/your/programme
+```
+- Then right-click and select paste
+- Go to the `HealthServ` folder, copy the path in the top search bar
+- Replace `/path/to/your/programme` by paste and add `/HealthServ`
+- Finally press **Ctrl + X**, press **Enter**, type on **Y**and press **Enter**.
+Now you can close the terminal, HealthServ should be starting automatically on the next reboot.
 
 ### Activate memory clearing command
+To clear the ram on Linux, the command requires sudo rights. So we will allow the command to be executed without a password.
+- First open a terminal with **Ctrl + Alt + T**
+- Then type sudo visudo and press **Enter**
+- Now enter your password and press **Enter**
+It will open the sudo rights file in an editor
+- Use your keyboard's **Down Arrow** to scroll down at the section: "# Allow members of group sudo to execute any command"
+- Copy the following line :
+```sh
+your_user_name ALL=(ALL) NOPASSWD: /bin/sh
+```
+- Then right-click and select paste
+- Replace `your_username`by your own username
+- Finally press **Ctrl + X**, press **Enter**, type on **Y**and press **Enter**.
+Now the command is configured, so you can close the terminal
 
 ### Config file edit
 - Open the folder `HealthServ`, then you should find a `config.toml` file.
@@ -197,11 +219,11 @@ The last section of the config file is the service startup after reboot.
 It should look something like this :
 ```sh
 services = [
-	"C:\\Users\\marti\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-	"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "/snap/bin/code",
+    "/usr/bin/firefox",
 ]
 ```
-By default, HealthServ launches vs code and chrome.<br>
+By default, HealthServ launches vs code and firefox.<br>
 But you may not have these two programs, or you may not want to launch them at startup.<br>
 If so, delete the 2 link lines and the services section should look like this :
 ```sh
@@ -210,20 +232,21 @@ services = [
 ```
 
 Now, maybe you want to launch a program at startup.
-- Go to its executable, right-click and click on "copy as path".
-- Then go to the `config.toml` file in the HealthServ folder and paste it into the sevices section.
-- Finally, add a second "\\" to each slash in the path and add a "," to the end of the line.
+- Go to its executable, if its download with snap, it should be in `snap/bin`.
+- Then copy the path in the top search bar.
+- Then, go to the `config.toml` file in the HealthServ folder, paste it into the sevices section.
+- Finally, add the name of your program, add ajoute des adds quotation marks at the beginning and end and a comma.
 
 Example for discord :
-- "C:\Users\marti\AppData\Local\Discord\app-1.0.9182\Discord.exe", ❌
-- "C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe" ❌
-- C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe, ❌
-- "C:\\\Users\\\marti\\\AppData\\\Local\\\Discord\\\app-1.0.9182\\\Discord.exe", ✅
+- "/snap/bin/", ❌
+- "/snap/bin/discord" ❌
+- /snap/bin/discord, ❌
+- "/snap/bin/discord", ✅
 
 Now the services section should look like this :
 ```sh
 services = [
-	"C:\\Users\\marti\\AppData\\Local\\Discord\\app-1.0.9182\\Discord.exe",
+	"/snap/bin/discord",
 ]
 ```
 
