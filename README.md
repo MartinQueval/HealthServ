@@ -58,7 +58,7 @@ It should look something like this :
 restart_hour = "12:00"
 ```
 You can change the restart time by modifying this line, but you must keep the format "HH:MM".<br>
-Please note that the format is based on a 24h00 format.
+⚠️ **Be careful** : the format is based on a `24h00` format.
 
 Example for a reboot at 4pm :
 - restart_hour = 4pm ❌
@@ -66,7 +66,7 @@ Example for a reboot at 4pm :
 - restart_hour = 16:00 ❌
 - restart_hour = "16:00" ✅
 
-Please note that this change will take effect on the next automatic restart.
+`⚠️ Please note that this change will take effect on the next automatic restart.`
 
 #### 3. Change Memory clear frequence
 Under the reboot section, there is the memory clear rate.
@@ -76,7 +76,7 @@ cache_clear_interval = 6
 ```
 By default, the memory is cleared every 6 hours,
 but you can change this value by replacing the 6 with the interval you want.<br>
-Be careful to use an integer as shown above.
+⚠️ **Be careful** : use an `integer` as shown above.
 
 Example for a clear every 4 hours :
 - cache_clear_interval = "4" ❌
@@ -84,7 +84,7 @@ Example for a clear every 4 hours :
 - cache_clear_interval = "four" ❌
 - cache_clear_interval = 4 ✅
 
-Please note that this change will take effect on the next automatic restart.
+`⚠️ Please note that this change will take effect on the next automatic restart.`
 
 #### 4. Change services run
 The last section of the config file is the service startup after reboot.
@@ -121,7 +121,7 @@ services = [
 ]
 ```
 
-Please note that this change will take effect on the next automatic restart.
+`⚠️ Please note that this change will take effect on the next automatic restart.`
 
 #### End of configuration
 Great, you've finished configuring `HealthServ` for Windows.<br>
