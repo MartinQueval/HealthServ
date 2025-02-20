@@ -18,7 +18,7 @@ pub fn launch_services(config: &Config) {
 * @brief Function to run a program on windows
 * @param Vec<String> the list of services that should be restarted
 */
-fn launch_windows_services(services : &Vec<String>){
+fn launch_windows_services(services : &[String]){
 	for service in services {
 		//command cmd to run a program
 		let _ = Command::new("cmd").args(&["/C", service]).spawn()
@@ -30,7 +30,7 @@ fn launch_windows_services(services : &Vec<String>){
 * @brief Function to run a program on Linux
 * @param Vec<String> the list of services that should be restarted
 */
-fn launch_linux_services(services : &Vec<String>){
+fn launch_linux_services(services : &[String]){
 	for service in services {
 		//command system to run a program
 		let _ = Command::new(service).spawn();
@@ -41,9 +41,9 @@ fn launch_linux_services(services : &Vec<String>){
 * @brief Function to run a program on macOS
 * @param Vec<String> the list of services that should be restarted
 */
-fn launch_mac_services(services: &Vec<String>) {
+fn launch_mac_services(services: &[String]) {
 	for service in services {
 		//command system to run a program
-		let _ = Command::new("open").arg(service).spawn();
+		let _ = Command::new("bash").arg("-c").arg(service).spawn();
 	}
 }
